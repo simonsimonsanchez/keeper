@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Pleos Vehicle SDK 공개 권한 (KEEPER가 실제로 쓰는 것만 선언) -->
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />          <!-- 기어 선택, 브레이크 페달, 주행거리 -->
+    <uses-permission android:name="pleos.car.permission.CAR_SEATS" />          <!-- 운전석 착석 여부 -->
+    <uses-permission android:name="pleos.car.permission.CAR_DOORS" />          <!-- 도어 잠금 상태 -->
+    <uses-permission android:name="pleos.car.permission.CONTROL_CAR_DOORS" />  <!-- 원격 잠금 시 도어 잠금 -->
+    <uses-permission android:name="pleos.car.permission.CAR_LIGHTS" />
+    <uses-permission android:name="pleos.car.permission.CONTROL_CAR_LIGHTS" /> <!-- 주차 중 경고 조명 -->
+    <!-- AAOS 표준 차량 속성: 기어(GEAR_SELECTION), 속도(PERF_VEHICLE_SPEED) -->
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+    <uses-permission android:name="android.car.permission.CAR_SPEED" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-feature android:name="android.hardware.type.automotive" android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_keeper"
+        android:roundIcon="@drawable/ic_keeper"
+        android:label="KEEPER 출발잠금"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Keeper">
+        <uses-library android:name="android.car" android:required="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode|density"
+            android:theme="@style/Theme.Keeper">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
